@@ -175,6 +175,8 @@ void CGraphicsView::OnLButtonUp(UINT nFlags, CPoint point)
 	::ClipCursor(NULL);
 	
 	CDC* pDC = GetDC();
+	pDC->SetROP2(R2_NOT);
+	pDC->SelectStockObject(NULL_BRUSH);
 
 	newCircle.currentPoint = point;
 	newCircle.OnDraw(pDC);
