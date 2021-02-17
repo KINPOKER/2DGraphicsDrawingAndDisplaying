@@ -4,6 +4,8 @@
 
 #pragma once
 #include "Circle.h"
+#include "Triangle.h"
+
 
 
 class CGraphicsView : public CView
@@ -22,10 +24,13 @@ public:
 
 	HCURSOR m_HCross;
 	BOOL m_startRect;
+	int nCount = 0;		//顶点计数器
 
 	Circle newCircle;
-	
+	Triangle newTriangle;
 
+	
+	int ShapeType;
 
 // 重写
 public:

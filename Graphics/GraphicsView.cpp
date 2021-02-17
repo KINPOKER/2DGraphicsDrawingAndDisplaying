@@ -159,8 +159,20 @@ void CGraphicsView::OnMouseMove(UINT nFlags, CPoint point)
 
 	if (m_startRect)
 	{
-		newCircle.currentPoint = point;
-		newCircle.OnDraw(pDC);
+		switch (ShapeType) {
+			case 4:
+				newTriangle.setPoint(point);
+				newTriangle.OnDraw(pDC);
+				break;
+			case 5:
+				break;
+			case 6:
+				newCircle.currentPoint = point;
+				newCircle.OnDraw(pDC);
+				break;
+			default:
+				break;
+		}
 	}
 	ReleaseDC(pDC); // 释放设备上下文
 
@@ -178,8 +190,19 @@ void CGraphicsView::OnLButtonUp(UINT nFlags, CPoint point)
 	pDC->SetROP2(R2_NOT);
 	pDC->SelectStockObject(NULL_BRUSH);
 
-	newCircle.currentPoint = point;
-	newCircle.OnDraw(pDC);
-
+	switch (ShapeType) {
+		case 4:
+			newTriangle.setPoint(point);
+			newTriangle.OnDraw(pDC);
+			break;
+		case 5:
+			break;
+		case 6:
+			newCircle.currentPoint = point;
+			newCircle.OnDraw(pDC);
+			break;
+		default:
+			break;
+	}
 	CView::OnLButtonUp(nFlags, point);
 }
