@@ -5,7 +5,8 @@
 #include "Graphics.h"
 #include "MyDialog.h"
 
-
+#include "GraphicsDoc.h"
+#include "GraphicsView.h"
 
 // MyDialog
 
@@ -14,6 +15,7 @@ IMPLEMENT_DYNCREATE(MyDialog, CFormView)
 MyDialog::MyDialog()
 	: CFormView(IDD_DIALOG1)
 {
+	ShapeType = 1;
 }
 
 MyDialog::~MyDialog()
@@ -29,6 +31,7 @@ void MyDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_ShapeRadio4, ShapeRadio4);
 	DDX_Control(pDX, IDC_ShapeRadio5, ShapeRadio5);
 	DDX_Control(pDX, IDC_ShapeRadio6, ShapeRadio6);
+	DDX_Control(pDX, IDC_ShapeRadio7, ShapeRadio7);
 }
 
 BEGIN_MESSAGE_MAP(MyDialog, CFormView)
@@ -38,6 +41,7 @@ BEGIN_MESSAGE_MAP(MyDialog, CFormView)
 	ON_BN_CLICKED(IDC_ShapeRadio4, &MyDialog::OnBnClickedShaperadio4)
 	ON_BN_CLICKED(IDC_ShapeRadio5, &MyDialog::OnBnClickedShaperadio5)
 	ON_BN_CLICKED(IDC_ShapeRadio6, &MyDialog::OnBnClickedShaperadio6)
+	ON_BN_CLICKED(IDC_ShapeRadio7, &MyDialog::OnBnClickedShaperadio7)
 END_MESSAGE_MAP()
 
 
@@ -59,44 +63,48 @@ void MyDialog::Dump(CDumpContext& dc) const
 
 void MyDialog::OnInitialUpdate()
 {
-
-	CheckRadioButton(IDC_ShapeRadio1, IDC_ShapeRadio6, IDC_ShapeRadio1);
-
 	CFormView::OnInitialUpdate();
 
 	// TODO: 在此添加专用代码和/或调用基类
+	CheckRadioButton(IDC_ShapeRadio1, IDC_ShapeRadio7, IDC_ShapeRadio1);
+	OnBnClickedShaperadio1();
 }
 
 // MyDialog 消息处理程序
 
 void MyDialog::OnBnClickedShaperadio1()
 {
-	// TODO: 在此添加控件通知处理程序代码
-	MessageBox(_T("radio1"));
+	ShapeType = 1;
 }
 
 void MyDialog::OnBnClickedShaperadio2()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	ShapeType = 2;
+	MessageBox(_T("radio2"));
 }
 
 void MyDialog::OnBnClickedShaperadio3()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	ShapeType = 3;
 }
 
 void MyDialog::OnBnClickedShaperadio4()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	ShapeType = 4;
 }
 
 void MyDialog::OnBnClickedShaperadio5()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	ShapeType = 5;
 }
 
 void MyDialog::OnBnClickedShaperadio6()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	ShapeType = 6;
+}
+
+void MyDialog::OnBnClickedShaperadio7()
+{
+	ShapeType = 7;
 }
 

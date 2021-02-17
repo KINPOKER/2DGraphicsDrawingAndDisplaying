@@ -14,10 +14,13 @@ protected: // 仅从序列化创建
 
 // 特性
 public:
-
+	CList <DataList, DataList> Mylist;
+	CList <DataList, DataList> Templist;
 // 操作
 public:
-
+	int thickness;
+	int color;
+	int type;
 // 重写
 public:
 	virtual BOOL OnNewDocument();

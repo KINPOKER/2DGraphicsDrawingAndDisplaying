@@ -1,7 +1,7 @@
 #pragma once
 #include "AreaShape.h"
 
-class Circle : public AreaShape
+class Ellipses : public AreaShape
 {
 private:
 	CPoint m_startPoint = 0;
@@ -9,7 +9,8 @@ private:
 	float area = 0;
 	float length = 0;
 
-	float r = 0;
+	float a = 0;
+	float b = 0;
 
 public:
 	float getLength();
@@ -22,4 +23,3 @@ public:
 
 	void OnDraw(CDC* pDC);
 };
-

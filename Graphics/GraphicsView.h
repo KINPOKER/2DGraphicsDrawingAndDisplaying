@@ -5,7 +5,10 @@
 #pragma once
 #include "Circle.h"
 #include "Triangle.h"
+#include "Rectangle.h"
+#include "Ellipse.h"
 
+#include "MyDialog.h"
 
 
 class CGraphicsView : public CView
@@ -24,13 +27,15 @@ public:
 
 	HCURSOR m_HCross;
 	BOOL m_startRect;
-	int nCount = 0;		//顶点计数器
-
-	Circle newCircle;
-	Triangle newTriangle;
+	int nCount;		//顶点计数器
 
 	
-	int ShapeType;
+	Triangle newTriangle;//3
+	Rectangles newRectangle;//4
+
+	Circle newCircle;//6
+	Ellipses newEllipse;//7
+
 
 // 重写
 public:
@@ -56,6 +61,13 @@ protected:
 	afx_msg void OnFilePrintPreview();
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+	/*afx_msg void OnShaperadio1();
+	afx_msg void OnShaperadio2();
+	afx_msg void OnShaperadio3();
+	afx_msg void OnShaperadio4();
+	afx_msg void OnShaperadio5();
+	afx_msg void OnShaperadio6();
+	afx_msg void OnShaperadio7();*/
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);

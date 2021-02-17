@@ -10,4 +10,9 @@
 // 添加要在此处预编译的标头
 #include "framework.h"
 
+struct DataList
+{
+	int ShapeType;//图形类型
+};
+
 #endif //PCH_H

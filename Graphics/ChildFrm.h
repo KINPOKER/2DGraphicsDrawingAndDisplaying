@@ -14,10 +14,10 @@ public:
 protected:
 	CSplitterWndEx m_wndSplitter;
 public:
-
+	//CGraphicsDoc* GetDocument() const;
 // 操作
 public:
-
+	//void RedrawCurrentView(void);
 // 重写
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 

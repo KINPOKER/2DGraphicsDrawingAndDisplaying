@@ -35,6 +35,16 @@ CChildFrame::~CChildFrame()
 }
 
 
+//CGraphicsDoc* CChildFrame::GetDocument() const
+//{
+//	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CGraphicsDoc)));
+//	return (CGraphicsDoc*)m_pDocument;
+//}
+//
+//void CChildFrame::RedrawCurrentView(void)
+//{
+//}
+
 BOOL CChildFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: 在此处通过修改 CREATESTRUCT cs 来修改窗口类或样式
@@ -64,11 +74,14 @@ void CChildFrame::Dump(CDumpContext& dc) const
 BOOL CChildFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 {
 	// TODO: 在此添加专用代码和/或调用基类
+	//return m_wndSplitter.Create(this, 1, 2, CSize(5, 1), pContext);
+
 	if (!m_wndSplitter.CreateStatic(this, 1, 2))//一行两列
 		return false;
 	m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CGraphicsView), CSize(600, 100), pContext);
 	m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(MyDialog), CSize(100, 100), pContext);
 	return true;
+
 
 	//return CMDIChildWndEx::OnCreateClient(lpcs, pContext);
 }

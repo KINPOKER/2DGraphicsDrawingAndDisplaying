@@ -28,6 +28,10 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	friend class CGraphicsView;		// 友元类的声明
+
+	static int ShapeType;
+
 	virtual void OnInitialUpdate();
 
 	CButton ShapeRadio1;
@@ -36,6 +40,7 @@ public:
 	CButton ShapeRadio4;
 	CButton ShapeRadio5;
 	CButton ShapeRadio6;
+	CButton ShapeRadio7;
 
 	afx_msg void OnBnClickedShaperadio1();
 	afx_msg void OnBnClickedShaperadio2();
@@ -43,6 +48,7 @@ public:
 	afx_msg void OnBnClickedShaperadio4();
 	afx_msg void OnBnClickedShaperadio5();
 	afx_msg void OnBnClickedShaperadio6();
+	afx_msg void OnBnClickedShaperadio7();
 };
 
 

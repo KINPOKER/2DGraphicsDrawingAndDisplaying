@@ -13,10 +13,12 @@
 #include "GraphicsDoc.h"
 #include "GraphicsView.h"
 
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
+int MyDialog::ShapeType = 1;
 
 // CGraphicsView
 
@@ -39,12 +41,12 @@ END_MESSAGE_MAP()
 CGraphicsView::CGraphicsView() noexcept
 {
 	// TODO: 在此处添加构造代码
-
 	m_startRect = FALSE;
-
-	//初始化m_HCross为十字光标
 	m_HCross = AfxGetApp()->LoadStandardCursor(IDC_CROSS);
+	//ShapeType = 1;
+	nCount = 0;
 
+	//CheckRadioButton(IDC_ShapeRadio1, IDC_ShapeRadio7, IDC_ShapeRadio1);
 }
 
 CGraphicsView::~CGraphicsView()
@@ -142,8 +144,31 @@ void CGraphicsView::OnLButtonDown(UINT nFlags, CPoint point)
 	//设置光标为十字光标
 	::SetCursor(m_HCross);
 
-	newCircle.setStartPoint(point);
-	newCircle.setOldPoint(point);
+	switch (MyDialog::ShapeType) {
+		default:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			newRectangle.setStartPoint(point);
+			newRectangle.setOldPoint(point);
+			break;
+		case 5:
+			break;
+		case 6:
+			newCircle.setStartPoint(point);
+			newCircle.setOldPoint(point);		
+			break;
+		case 7:
+			newEllipse.setStartPoint(point);
+			newEllipse.setOldPoint(point);
+			break;
+	}
+	
 
 	SetCapture(); // 设置鼠标捕获
 	CView::OnLButtonDown(nFlags, point);
@@ -159,10 +184,20 @@ void CGraphicsView::OnMouseMove(UINT nFlags, CPoint point)
 
 	if (m_startRect)
 	{
-		switch (ShapeType) {
-			case 4:
+		switch (MyDialog::ShapeType) {
+			default:
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
 				newTriangle.setPoint(point);
 				newTriangle.OnDraw(pDC);
+				break; 
+			case 4:
+				newRectangle.currentPoint = point;
+				newRectangle.OnDraw(pDC);
 				break;
 			case 5:
 				break;
@@ -170,7 +205,9 @@ void CGraphicsView::OnMouseMove(UINT nFlags, CPoint point)
 				newCircle.currentPoint = point;
 				newCircle.OnDraw(pDC);
 				break;
-			default:
+			case 7:
+				newEllipse.currentPoint = point;
+				newEllipse.OnDraw(pDC);
 				break;
 		}
 	}
@@ -190,10 +227,20 @@ void CGraphicsView::OnLButtonUp(UINT nFlags, CPoint point)
 	pDC->SetROP2(R2_NOT);
 	pDC->SelectStockObject(NULL_BRUSH);
 
-	switch (ShapeType) {
-		case 4:
+	switch (MyDialog::ShapeType) {
+		default:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
 			newTriangle.setPoint(point);
 			newTriangle.OnDraw(pDC);
+			break;
+		case 4:
+			newRectangle.currentPoint = point;
+			newRectangle.OnDraw(pDC);
 			break;
 		case 5:
 			break;
@@ -201,8 +248,11 @@ void CGraphicsView::OnLButtonUp(UINT nFlags, CPoint point)
 			newCircle.currentPoint = point;
 			newCircle.OnDraw(pDC);
 			break;
-		default:
+		case 7:
+			newEllipse.currentPoint = point;
+			newEllipse.OnDraw(pDC);
 			break;
 	}
 	CView::OnLButtonUp(nFlags, point);
 }
+

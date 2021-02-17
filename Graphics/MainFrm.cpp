@@ -8,6 +8,11 @@
 
 #include "MainFrm.h"
 
+#include "GraphicsDoc.h"
+#include "GraphicsView.h"
+#include "MyDialog.h"//新建立的对话框类
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -428,3 +433,75 @@ void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 	CMDIFrameWndEx::OnSettingChange(uFlags, lpszSection);
 	m_wndOutput.UpdateFonts();
 }
+
+
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+
+	//if (!m_wndSplitter.CreateStatic(this, 1, 2))//一行两列
+	//	return false;
+	//m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CGraphicsView), CSize(600, 100), pContext);
+	//m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(MyDialog), CSize(100, 100), pContext);
+	//return true;
+
+	//// 单文档视图一分为二
+	//if (!m_wndSplitter.CreateStatic(this, 1, 2))
+	//{
+	//	TRACE0("Failed to Splitter window\n");
+	//	return FALSE;
+	//}
+
+	//// 加载左边的视图
+	//if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CGraphicsView), CSize(200, 0), pContext))
+	//{
+	//	TRACE0("Failed to Load Left window\n");
+	//	return FALSE;
+	//}
+
+	//// 加载右边的视图
+	//if (!m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(MyDialog), CSize(800, 0), pContext))
+	//{
+	//	TRACE0("Failed to Load Right window\n");
+	//	return FALSE;
+	//}
+
+	//return TRUE;//CFrameWnd::OnCreateClient(lpcs, pContext);
+
+	/*if (m_wndSplitter.CreateStatic(this, 1, 2))
+	{
+		CSize size;
+		CRect cltRect;
+		GetClientRect(cltRect);
+		size.cx = cltRect.Width() - PanelWidth;
+		size.cy = 0;
+		if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CGraphicsView),
+			size, pContext)) return FALSE;
+		size.cx = 0;
+		size.cy = 0;
+		if (!m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(MyDialog),
+			size, pContext)) return FALSE;
+		else SetActiveView((CView*)m_wndSplitter.GetPane(0, 0));
+	}
+	m_bSplitterCreated = TRUE;
+	return TRUE;*/
+
+	return CMDIFrameWndEx::OnCreateClient(lpcs, pContext);
+}
+
+
+
+void CMainFrame::OnSize(UINT nType, int cx, int cy)
+{
+	//CFrameWnd::OnSize(nType, cx, cy);
+	//int firstColWd;
+	//RECT cltRect;
+	//GetClientRect(&cltRect);
+	//firstColWd = cltRect.right - cltRect.left - PanelWidth;
+	//if (firstColWd < 0) firstColWd = 0;
+	//if (m_bSplitterCreated)  //Splitter Created
+	//{
+	//	m_wndSplitter.SetColumnInfo(0, firstColWd, firstColWd);
+	//	m_wndSplitter.RecalcLayout();
+	//}
+} //End of OnSize

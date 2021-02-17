@@ -1,7 +1,7 @@
 #pragma once
 #include "AreaShape.h"
 
-class Circle : public AreaShape
+class Rectangles : public AreaShape
 {
 private:
 	CPoint m_startPoint = 0;
@@ -9,7 +9,8 @@ private:
 	float area = 0;
 	float length = 0;
 
-	float r = 0;
+	float width = 0;
+	float extent = 0;
 
 public:
 	float getLength();

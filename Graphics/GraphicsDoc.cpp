@@ -56,13 +56,31 @@ BOOL CGraphicsDoc::OnNewDocument()
 
 void CGraphicsDoc::Serialize(CArchive& ar)
 {
+	int i;
 	if (ar.IsStoring())
 	{
 		// TODO: 在此添加存储代码
+		ar << Mylist.GetCount();
+		DataList datalist;
+		POSITION pos = Mylist.GetHeadPosition();
+		for (i = 0; i < Mylist.GetCount(); i++)
+		{
+			datalist = Mylist.GetNext(pos);
+			ar << datalist.ShapeType;
+		}
 	}
 	else
 	{
 		// TODO: 在此添加加载代码
+		int count;
+		ar >> count;
+		DataList datalist;
+		POSITION pos = Mylist.GetHeadPosition();
+		for (i = 0; i < count; i++)
+		{
+			ar >> datalist.ShapeType;
+			Mylist.AddTail(datalist);
+		}
 	}
 }
 

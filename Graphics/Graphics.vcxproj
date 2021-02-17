@@ -187,6 +187,7 @@
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="ClassView.h" />
+    <ClInclude Include="Ellipse.h" />
     <ClInclude Include="FileView.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Graphics.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="OutputWnd.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PropertiesWnd.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="targetver.h" />
@@ -209,6 +211,7 @@
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="ClassView.cpp" />
+    <ClCompile Include="Ellipse.cpp" />
     <ClCompile Include="FileView.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="GraphicsDoc.cpp" />
@@ -224,6 +227,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PropertiesWnd.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="ViewTree.cpp" />
