@@ -85,6 +85,13 @@
 #define IDS_EXPLORER                    305
 #define IDS_EDIT_MENU                   306
 #define IDD_DIALOG1                     310
+#define IDC_ShapeRadio1                 1000
+#define IDC_ShapeRadio2                 1001
+#define IDC_ShapeRadio3                 1003
+#define IDC_ShapeRadio4                 1004
+#define IDC_ShapeRadio5                 1005
+#define IDC_ShapeRadio6                 1006
+#define IDC_ShapeRadio7                 1007
 
 // Next default values for new objects
 // 
@@ -92,7 +99,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        312
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1000
+#define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

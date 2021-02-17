@@ -16,6 +16,9 @@
     <Filter Include="entity">
       <UniqueIdentifier>{d16471f7-5e9b-46a7-b7b7-505c308e9835}</UniqueIdentifier>
     </Filter>
+    <Filter Include="controls">
+      <UniqueIdentifier>{a43c4425-ca0e-4aff-87ad-8d6f2be3d324}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics.h">
@@ -73,7 +76,7 @@
       <Filter>entity</Filter>
     </ClInclude>
     <ClInclude Include="MyDialog.h">
-      <Filter>entity</Filter>
+      <Filter>controls</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +126,7 @@
       <Filter>entity</Filter>
     </ClCompile>
     <ClCompile Include="MyDialog.cpp">
-      <Filter>entity</Filter>
+      <Filter>controls</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

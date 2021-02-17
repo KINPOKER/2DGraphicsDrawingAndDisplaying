@@ -27,6 +27,22 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
 	DECLARE_MESSAGE_MAP()
+public:
+	virtual void OnInitialUpdate();
+
+	CButton ShapeRadio1;
+	CButton ShapeRadio2;
+	CButton ShapeRadio3;
+	CButton ShapeRadio4;
+	CButton ShapeRadio5;
+	CButton ShapeRadio6;
+
+	afx_msg void OnBnClickedShaperadio1();
+	afx_msg void OnBnClickedShaperadio2();
+	afx_msg void OnBnClickedShaperadio3();
+	afx_msg void OnBnClickedShaperadio4();
+	afx_msg void OnBnClickedShaperadio5();
+	afx_msg void OnBnClickedShaperadio6();
 };
 
 
