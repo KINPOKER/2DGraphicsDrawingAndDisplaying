@@ -42,6 +42,7 @@ protected:  // 控件条嵌入成员
 	CClassView        m_wndClassView;
 	COutputWnd        m_wndOutput;
 	CPropertiesWnd    m_wndProperties;
+	CSplitterWnd      m_splitter;
 
 // 生成的消息映射函数
 protected:

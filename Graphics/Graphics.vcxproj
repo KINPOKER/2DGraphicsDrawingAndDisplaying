@@ -194,6 +194,7 @@
     <ClInclude Include="GraphicsView.h" />
     <ClInclude Include="LineShape.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MyDialog.h" />
     <ClInclude Include="OutputWnd.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PropertiesWnd.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="GraphicsView.cpp" />
     <ClCompile Include="LineShape.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MyDialog.cpp" />
     <ClCompile Include="OutputWnd.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

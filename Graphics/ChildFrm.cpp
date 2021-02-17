@@ -8,6 +8,10 @@
 
 #include "ChildFrm.h"
 
+#include "GraphicsDoc.h"
+#include "GraphicsView.h"
+#include "MyDialog.h"//新建立的对话框类
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -55,3 +59,16 @@ void CChildFrame::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // CChildFrame 消息处理程序
+
+
+BOOL CChildFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	if (!m_wndSplitter.CreateStatic(this, 1, 2))//一行两列
+		return false;
+	m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CGraphicsView), CSize(600, 100), pContext);
+	m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(MyDialog), CSize(100, 100), pContext);
+	return true;
+
+	//return CMDIChildWndEx::OnCreateClient(lpcs, pContext);
+}
