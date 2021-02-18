@@ -34,6 +34,14 @@ CPoint ITriangle::getOldPoint() {
 	return m_OldPoint;
 }
 
+void ITriangle::getDrawPoint() {
+	pt[0].x = (currentPoint.x + m_startPoint.x) / 2;
+	pt[0].y = m_startPoint.y;
+	pt[1].x = m_startPoint.x;
+	pt[1].y = currentPoint.y;
+	pt[2] = currentPoint;
+}
+
 void ITriangle::setStartPoint(CPoint point) {
 	m_startPoint = point;
 }
@@ -49,15 +57,15 @@ void ITriangle::OnDraw(CDC* pDC)
 	cPen.CreatePen(getLinear(), getLineWidth(), RGB(color[0], color[1], color[2]));
 	pOldPen = pDC->SelectObject(&cPen);//ÉèÖÃÐÂ»­±Ê
 
-	pDC->MoveTo((m_OldPoint.x + m_startPoint.x) / 2, m_startPoint.y);
-	pDC->LineTo(m_startPoint.x, m_OldPoint.y);
-	pDC->LineTo(m_OldPoint);
-	pDC->LineTo((m_OldPoint.x + m_startPoint.x) / 2, m_startPoint.y);
+	pt[0].x = (m_OldPoint.x + m_startPoint.x) / 2;
+	pt[0].y = m_startPoint.y;
+	pt[1].x = m_startPoint.x;
+	pt[1].y = m_OldPoint.y;
+	pt[2] = m_OldPoint;
 
-	pDC->MoveTo((currentPoint.x + m_startPoint.x) / 2, m_startPoint.y);
-	pDC->LineTo(m_startPoint.x, currentPoint.y);
-	pDC->LineTo(currentPoint);
-	pDC->LineTo((currentPoint.x + m_startPoint.x) / 2, m_startPoint.y);
+	pDC->Polygon(pt, 3);
+	getDrawPoint();
+	pDC->Polygon(pt, 3);
 
 	m_OldPoint = currentPoint;
 

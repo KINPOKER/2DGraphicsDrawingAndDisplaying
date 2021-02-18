@@ -10,12 +10,12 @@ private:
 	float length = 0;
 
 public:
-
+	static int nITriangle;
 	float getLength();
 	float getArea();
 	CPoint getStartPoint();
 	CPoint getOldPoint();
-	void setPoint();
+	void getDrawPoint();
 
 	void setStartPoint(CPoint point);
 	void setOldPoint(CPoint point);

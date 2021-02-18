@@ -1,5 +1,6 @@
 #pragma once
 #include "AreaShape.h"
+
 class RTriangle :public AreaShape
 {
 private:
@@ -10,11 +11,12 @@ private:
 	float length = 0;
 
 public:
+	static int nRTriangle;
 	float getLength();
 	float getArea();
 	CPoint getStartPoint();
 	CPoint getOldPoint();
-	CPoint *getDrawPoint();
+	void getDrawPoint();
 
 	void setStartPoint(CPoint point);
 	void setOldPoint(CPoint point);
@@ -22,4 +24,3 @@ public:
 	void OnDraw(CDC* pDC);
 	void Echo(CDC* pDC);
 };
-

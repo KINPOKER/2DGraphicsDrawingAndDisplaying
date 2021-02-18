@@ -44,7 +44,8 @@ CGraphicsView::CGraphicsView() noexcept
 	m_startRect = FALSE;
 	m_HCross = AfxGetApp()->LoadStandardCursor(IDC_CROSS);
 	//ShapeType = 1;
-	nCount = 0;
+	RTriangle::nRTriangle = 0;
+	ITriangle::nITriangle = 0;
 
 	//CheckRadioButton(IDC_ShapeRadio1, IDC_ShapeRadio7, IDC_ShapeRadio1);
 }
@@ -167,6 +168,16 @@ void CGraphicsView::OnLButtonDown(UINT nFlags, CPoint point)
 			newEllipse.setStartPoint(point);
 			newEllipse.setOldPoint(point);
 			break;
+		//TODO:MyDialog中添加8和9的响应
+		case 8:
+			newRTriangle.setStartPoint(point);
+			newRTriangle.setOldPoint(point);
+			break;
+		case 9:
+			newITriangle.setStartPoint(point);
+			newITriangle.setOldPoint(point);
+			ITriangle::nITriangle++;
+			break;
 	}
 	
 
@@ -208,6 +219,14 @@ void CGraphicsView::OnMouseMove(UINT nFlags, CPoint point)
 			case 7:
 				newEllipse.currentPoint = point;
 				newEllipse.OnDraw(pDC);
+				break;
+			case 8:
+				newRTriangle.currentPoint = point;
+				newRTriangle.OnDraw(pDC);
+				break;
+			case 9:
+				newITriangle.currentPoint = point;
+				newITriangle.OnDraw(pDC);
 				break;
 		}
 	}
@@ -251,6 +270,18 @@ void CGraphicsView::OnLButtonUp(UINT nFlags, CPoint point)
 		case 7:
 			newEllipse.currentPoint = point;
 			newEllipse.OnDraw(pDC);
+			break;
+		case 8:
+			newRTriangle.currentPoint = point;
+			newRTriangle.OnDraw(pDC);
+			newRTriangle.Echo(pDC);
+			RTriangle::nRTriangle++;
+			break;
+		case 9:
+			newITriangle.currentPoint = point;
+			newITriangle.OnDraw(pDC);
+			newITriangle.Echo(pDC);
+			ITriangle::nITriangle++;
 			break;
 	}
 	CView::OnLButtonUp(nFlags, point);

@@ -7,6 +7,8 @@
 #include "Triangle.h"
 #include "Rectangle.h"
 #include "Ellipse.h"
+#include "RTriangle.h"
+#include "ITriangle.h"
 
 #include "MyDialog.h"
 
@@ -27,7 +29,6 @@ public:
 
 	HCURSOR m_HCross;
 	BOOL m_startRect;
-	int nCount;		//顶点计数器
 
 	
 	Triangle newTriangle;//3
@@ -35,6 +36,9 @@ public:
 
 	Circle newCircle;//6
 	Ellipses newEllipse;//7
+
+	RTriangle newRTriangle;//8
+	ITriangle newITriangle;//9
 
 
 // 重写

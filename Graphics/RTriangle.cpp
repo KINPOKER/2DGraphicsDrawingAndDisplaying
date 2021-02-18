@@ -27,12 +27,11 @@ CPoint RTriangle::getOldPoint() {
 	return m_OldPoint;
 }
 
-CPoint* RTriangle::getDrawPoint() {
+void RTriangle::getDrawPoint() {
 	pt[0] = m_startPoint;
 	pt[1].x = m_startPoint.x;
 	pt[1].y = currentPoint.y;
 	pt[2] = currentPoint;
-	return pt;
 }
 
 void RTriangle::setStartPoint(CPoint point) {
@@ -45,21 +44,21 @@ void RTriangle::setOldPoint(CPoint point) {
 
 void RTriangle::OnDraw(CDC* pDC)
 {
-
 	int* color = getColor();
 	CPen cPen, * pOldPen;
 	cPen.CreatePen(getLinear(), getLineWidth(), RGB(color[0], color[1], color[2]));
 	pOldPen = pDC->SelectObject(&cPen);//设置新画笔
 
-	pDC->MoveTo(m_startPoint);
-	pDC->LineTo(m_startPoint.x, m_OldPoint.y);
-	pDC->LineTo(m_OldPoint);
-	pDC->LineTo(m_startPoint);
+	pt[0] = m_startPoint;
+	pt[1].x = m_startPoint.x;
+	pt[1].y = m_OldPoint.y;
+	pt[2] = m_OldPoint;
+	pDC->Polygon(pt, 3);
 
-	pDC->MoveTo(m_startPoint);
-	pDC->LineTo(m_startPoint.x, currentPoint.y);
-	pDC->LineTo(currentPoint);
-	pDC->LineTo(m_startPoint);
+	getDrawPoint();
+	pDC->Polygon(pt, 3);
+
+	nRTriangle++;	//画布中RTriangle数量+1
 
 	m_OldPoint = currentPoint;
 
@@ -76,9 +75,6 @@ void RTriangle::OnDraw(CDC* pDC)
 
 void RTriangle::Echo(CDC* pDC)
 {
-	CPoint* pPt;
-	pPt = getDrawPoint();
-
 	for (int i = 0; i < 3; i++)
 	{
 		CString str;
