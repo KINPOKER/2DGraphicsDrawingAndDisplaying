@@ -87,6 +87,12 @@
     <ClInclude Include="Rectangle.h">
       <Filter>entity</Filter>
     </ClInclude>
+    <ClInclude Include="ITriangle.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="RTriangle.h">
+      <Filter>entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics.cpp">
@@ -144,6 +150,12 @@
       <Filter>entity</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="ITriangle.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="RTriangle.cpp">
       <Filter>entity</Filter>
     </ClCompile>
   </ItemGroup>

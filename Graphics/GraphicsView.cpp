@@ -192,8 +192,8 @@ void CGraphicsView::OnMouseMove(UINT nFlags, CPoint point)
 			case 2:
 				break;
 			case 3:
-				newTriangle.setPoint(point);
-				newTriangle.OnDraw(pDC);
+				//newTriangle.setPoint(point);
+				//newTriangle.OnDraw(pDC);
 				break; 
 			case 4:
 				newRectangle.currentPoint = point;
